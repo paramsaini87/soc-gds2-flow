@@ -11,7 +11,7 @@ All 34 hardened modules pass full signoff — **DRC clean, LVS clean, timing ana
 1. [Design Specification](#1-design-specification)
 2. [SoC Architecture](#2-soc-architecture)
 3. [Module Descriptions](#3-module-descriptions)
-4. [Synthesis Flow — SiliconForge](#4-synthesis-flow--siliconforge)
+4. [Synthesis Flow — My Own Flow](#4-synthesis-flow--siliconforge)
 5. [Place & Route Flow — LibreLane 3.0.1](#5-place--route-flow--librelane-301)
 6. [Signoff Results — All 34 Modules](#6-signoff-results--all-34-modules)
 7. [Timing Analysis](#7-timing-analysis)
@@ -179,9 +179,9 @@ All 34 hardened modules pass full signoff — **DRC clean, LVS clean, timing ana
 
 ---
 
-## 4. Synthesis Flow — SiliconForge
+## 4. Synthesis Flow — My Own Flow
 
-All modules were synthesized using **SiliconForge**, a custom EDA tool built entirely in C++17 with zero external dependencies (126,000+ lines of code). The synthesis pipeline:
+All modules were synthesized using **My Own Flow**, a custom EDA tool built entirely in C++17 with zero external dependencies (126,000+ lines of code). The synthesis pipeline:
 
 ```
 Behavioral Verilog
@@ -331,7 +331,7 @@ docker run --rm \
   config.json
 ```
 
-The `--from Yosys.JsonHeader --skip Yosys.Synthesis` flags skip LibreLane's internal synthesis and use our pre-synthesized SKY130 netlists from SiliconForge directly.
+The `--from Yosys.JsonHeader --skip Yosys.Synthesis` flags skip LibreLane's internal synthesis and use our pre-synthesized SKY130 netlists from My Own Flow directly.
 
 ---
 
@@ -499,7 +499,7 @@ Example from otp_ctrl: 5 antenna violations detected, 6 diodes inserted, 0 viola
 | **PDK** | SkyWater SKY130 130nm |
 | **Standard cell library** | sky130_fd_sc_hd |
 | **PnR tool** | LibreLane 3.0.1 (Docker) |
-| **Synthesis tool** | SiliconForge (custom C++17 EDA) |
+| **Synthesis tool** | My Own Flow (custom C++17 EDA) |
 | **STA corners analyzed** | 9 per module (306 total) |
 | **PnR steps per module** | 72 |
 | **Total PnR steps executed** | 2,448 |
